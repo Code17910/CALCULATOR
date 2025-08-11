@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meme Royale</title>
+    <meta name="description" content="Meme Royale — Turn-based meme battle." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app" role="application" aria-label="Meme Royale game">
+      <header class="app-header">
+        <div class="title">
+          <div class="logo">MR</div>
+          <div>
+            <h1>Meme Royale</h1>
+            <div class="sub">Turn-based meme battle</div>
+          </div>
+        </div>
+        <div class="header-controls">
+          <div class="sub">Turn: <span id="turnCounter">1</span></div>
+          <button class="btn" id="settingsBtn" title="Settings" aria-label="Open Settings">Settings</button>
+          <button class="btn" id="restartBtn" title="Restart" aria-label="Restart game">Restart</button>
+        </div>
+      </header>
+
+      <main class="battle">
+        <section class="arena" aria-live="polite">
+          <div class="hp-row">
+            <div class="avatar">
+              <div class="pic" id="playerFace" aria-hidden="true">😎</div>
+              <div>
+                <div class="hp-text">Player</div>
+                <div class="hpbar" title="Player HP" aria-label="Player health">
+                  <div id="playerHPFill" class="fill"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="avatar reverse">
+              <div class="pic" id="cpuFace" aria-hidden="true">🤖</div>
+              <div class="align-right">
+                <div class="hp-text">CPU</div>
+                <div class="hpbar" title="CPU HP" aria-label="CPU health">
+                  <div id="cpuHPFill" class="fill"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="battlefield" id="battlefield">
+            <div class="meme-stage" id="memeStage" aria-live="polite" aria-atomic="true">🔥</div>
+          </div>
+        </section>
+
+        <aside class="controls">
+          <div class="controls-header">
+            <strong>Cards</strong>
+            <small class="muted">Cooldowns vary</small>
+          </div>
+          <div class="cards" id="cardsGrid" aria-hidden="false"></div>
+          <div class="controls-sm">
+            <div class="sub">Auto-play</div>
+            <label class="checkbox">
+              <input type="checkbox" id="autoPlay" />
+              <small class="muted">CPU vs CPU</small>
+            </label>
+          </div>
+        </aside>
+      </main>
+
+      <div id="overlayRoot"></div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
